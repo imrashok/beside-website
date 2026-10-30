@@ -1,799 +1,412 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Beside — When You Can't Be There</title>
-
-    <meta name="description"
-          content="Beside helps seniors with everyday errands, companionship, appointments and outings when family can't always be there.">
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                         Roboto, Helvetica, Arial, sans-serif;
-            color: #263238;
-            background: #faf8f4;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* NAVIGATION */
-
-        nav {
-            height: 76px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 7%;
-            background: rgba(250, 248, 244, 0.96);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid #eee8df;
-        }
-
-        .logo {
-            font-size: 27px;
-            font-weight: 700;
-            letter-spacing: -1px;
-            color: #314d46;
-        }
-
-        .nav-button {
-            background: #314d46;
-            color: white;
-            padding: 11px 22px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 680px;
-            display: flex;
-            align-items: center;
-            padding: 80px 7%;
-            background:
-                radial-gradient(circle at 80% 20%, #e8d9c8 0, transparent 28%),
-                linear-gradient(135deg, #f7f1e9 0%, #eee5d9 100%);
-        }
-
-        .hero-content {
-            max-width: 720px;
-        }
-
-        .eyebrow {
-            display: inline-block;
-            color: #8a6651;
-            font-weight: 700;
-            font-size: 14px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 22px;
-        }
-
-        h1 {
-            font-size: clamp(48px, 7vw, 82px);
-            line-height: 1.02;
-            letter-spacing: -4px;
-            color: #263c38;
-            margin-bottom: 28px;
-        }
-
-        .hero p {
-            font-size: 21px;
-            max-width: 650px;
-            color: #5d625f;
-            margin-bottom: 38px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
-        .primary-button,
-        .secondary-button {
-            padding: 15px 25px;
-            border-radius: 30px;
-            font-weight: 700;
-            display: inline-block;
-            transition: transform 0.2s ease;
-        }
-
-        .primary-button {
-            background: #314d46;
-            color: white;
-        }
-
-        .secondary-button {
-            background: white;
-            color: #314d46;
-            border: 1px solid #d9d0c6;
-        }
-
-        .primary-button:hover,
-        .secondary-button:hover {
-            transform: translateY(-2px);
-        }
-
-        /* INTRO */
-
-        .section {
-            padding: 100px 7%;
-        }
-
-        .section-header {
-            max-width: 720px;
-            margin-bottom: 55px;
-        }
-
-        .section-label {
-            color: #a06d4e;
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        h2 {
-            font-size: clamp(34px, 5vw, 52px);
-            line-height: 1.1;
-            letter-spacing: -2px;
-            color: #263c38;
-            margin-bottom: 18px;
-        }
-
-        .section-header p {
-            color: #696d6a;
-            font-size: 18px;
-        }
-
-        /* AUDIENCE */
-
-        .audience {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-
-        .audience-card {
-            padding: 42px;
-            border-radius: 24px;
-            background: white;
-            border: 1px solid #ebe5dd;
-        }
-
-        .audience-card h3 {
-            font-size: 28px;
-            color: #314d46;
-            margin-bottom: 14px;
-        }
-
-        .audience-card p {
-            color: #686d69;
-            font-size: 17px;
-        }
-
-        /* SERVICES */
-
-        .services-section {
-            background: #314d46;
-            color: white;
-        }
-
-        .services-section h2 {
-            color: white;
-        }
-
-        .services-section .section-label {
-            color: #d9b89d;
-        }
-
-        .services-section .section-header p {
-            color: #d4d9d6;
-        }
-
-        .services {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .service-card {
-            padding: 36px;
-            border: 1px solid rgba(255,255,255,0.16);
-            border-radius: 22px;
-            background: rgba(255,255,255,0.07);
-        }
-
-        .service-number {
-            font-size: 14px;
-            color: #d9b89d;
-            font-weight: 700;
-            margin-bottom: 25px;
-        }
-
-        .service-card h3 {
-            font-size: 25px;
-            margin-bottom: 14px;
-        }
-
-        .service-card p {
-            color: #d6ddda;
-        }
-
-        /* HOW IT WORKS */
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .step {
-            padding: 32px;
-            background: white;
-            border-radius: 20px;
-            border: 1px solid #ebe5dd;
-        }
-
-        .step-number {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: #e7d8c9;
-            color: #314d46;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            margin-bottom: 22px;
-        }
-
-        .step h3 {
-            color: #314d46;
-            margin-bottom: 10px;
-            font-size: 21px;
-        }
-
-        .step p {
-            color: #6b6f6c;
-        }
-
-        /* RESEARCH */
-
-        .research {
-            background: #eee5d9;
-            text-align: center;
-        }
-
-        .research-content {
-            max-width: 750px;
-            margin: auto;
-        }
-
-        .research p {
-            color: #626763;
-            font-size: 18px;
-            margin-bottom: 32px;
-        }
-
-        .research-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
-        /* TRUST */
-
-        .trust {
-            text-align: center;
-        }
-
-        .trust-content {
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .trust p {
-            color: #686d69;
-            font-size: 18px;
-        }
-
-        .trust-list {
-            margin-top: 35px;
-            display: flex;
-            justify-content: center;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
-        .trust-item {
-            padding: 12px 18px;
-            border-radius: 30px;
-            background: #f0ebe4;
-            color: #46504c;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        /* FOOTER */
-
-        footer {
-            padding: 45px 7%;
-            background: #263c38;
-            color: #cdd4d1;
-            text-align: center;
-        }
-
-        footer .footer-logo {
-            color: white;
-            font-size: 25px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        footer p {
-            font-size: 14px;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 800px) {
-
-            nav {
-                padding: 0 5%;
-            }
-
-            .nav-button {
-                display: none;
-            }
-
-            .hero {
-                min-height: 600px;
-                padding: 70px 6%;
-            }
-
-            h1 {
-                letter-spacing: -2.5px;
-            }
-
-            .hero p {
-                font-size: 18px;
-            }
-
-            .section {
-                padding: 75px 6%;
-            }
-
-            .audience,
-            .services,
-            .steps {
-                grid-template-columns: 1fr;
-            }
-
-            .audience-card,
-            .service-card,
-            .step {
-                padding: 28px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>beside — We're exploring a new kind of senior support</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f7f3ed;
+      color: #24443f;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    /* HEADER */
+
+    header {
+      height: 82px;
+      background: #fffdf9;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #eee8df;
+    }
+
+    .header-inner {
+      width: min(1100px, 90%);
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 750;
+      letter-spacing: -1px;
+    }
+
+    .status {
+      font-size: 13px;
+      font-weight: 600;
+      color: #24443f;
+      background: #e8eee9;
+      padding: 9px 16px;
+      border-radius: 30px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 780px;
+      padding: 90px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #a4633e;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: 0.98;
+      letter-spacing: -4px;
+      max-width: 800px;
+      margin-bottom: 28px;
+    }
+
+    .intro {
+      font-size: 21px;
+      line-height: 1.55;
+      color: #5d6865;
+      max-width: 650px;
+      margin-bottom: 36px;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fffdf9;
+      border: 1px solid #ddd5ca;
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 650;
+      margin-bottom: 42px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      background: #c56b4a;
+      border-radius: 50%;
+    }
+
+    /* BUTTONS */
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 23px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      transition: 0.2s ease;
+    }
+
+    .button-primary {
+      background: #24443f;
+      color: white;
+    }
+
+    .button-primary:hover {
+      background: #183630;
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      background: #fffdf9;
+      color: #24443f;
+      border: 1px solid #d9d0c5;
+    }
+
+    .button-secondary:hover {
+      border-color: #24443f;
+      transform: translateY(-2px);
+    }
+
+    /* EXPLORING */
+
+    .exploring {
+      background: #fffdf9;
+      padding: 80px 0;
+      border-top: 1px solid #eee8df;
+      border-bottom: 1px solid #eee8df;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #a4633e;
+      margin-bottom: 14px;
+    }
+
+    .exploring h2 {
+      font-size: 38px;
+      letter-spacing: -1.5px;
+      margin-bottom: 42px;
+    }
+
+    .ideas {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .idea {
+      padding: 28px;
+      background: #f7f3ed;
+      border-radius: 16px;
+    }
+
+    .idea h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .idea p {
+      color: #68716e;
+      font-size: 15px;
+    }
+
+    /* RESEARCH */
+
+    .research {
+      padding: 90px 0;
+      text-align: center;
+    }
+
+    .research h2 {
+      font-size: 42px;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+    }
+
+    .research p {
+      max-width: 570px;
+      margin: 0 auto 30px;
+      color: #66706d;
+      font-size: 17px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 30px 0;
+      background: #24443f;
+      color: #dfe8e4;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+      header {
+        height: 72px;
+      }
+
+      .status {
+        font-size: 11px;
+        padding: 7px 11px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 75px 0;
+      }
+
+      h1 {
+        font-size: 52px;
+        letter-spacing: -2.5px;
+      }
+
+      .intro {
+        font-size: 18px;
+      }
+
+      .ideas {
+        grid-template-columns: 1fr;
+      }
+
+      .exploring h2,
+      .research h2 {
+        font-size: 32px;
+      }
+
+      .button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">beside</div>
+      <div class="status">We're exploring this idea</div>
+    </div>
+  </header>
 
-    <nav>
-        <div class="logo">beside</div>
 
-        <a href="#research" class="nav-button">
-            Help us understand
-        </a>
-    </nav>
-
+  <main>
 
     <!-- HERO -->
 
     <section class="hero">
-
+      <div class="container">
         <div class="hero-content">
 
-            <div class="eyebrow">
-                A new kind of senior support
-            </div>
+          <div class="eyebrow">
+            A new kind of senior support
+          </div>
 
-            <h1>
-                When you can't be there, we're there.
-            </h1>
+          <h1>
+            When you can't be there, we're there.
+          </h1>
 
-            <p>
-                A trusted helping hand for seniors —
-                for everyday errands, appointments, outings,
-                conversations, and the little things that make
-                independent living easier.
-            </p>
+          <p class="intro">
+            We're exploring a service that gives seniors a trusted helping hand
+            with everyday life — and gives their families peace of mind.
+          </p>
 
-            <div class="hero-buttons">
+          <div class="availability">
+            <span class="dot"></span>
+            Beside is not available yet. We're still exploring.
+          </div>
 
-                <a href="#research" class="primary-button">
-                    I'm a family member
-                </a>
+          <div class="buttons">
+            <a href="YOUR_SENIOR_FORM_LINK" class="button button-primary">
+              I'm a senior
+            </a>
 
-                <a href="#research" class="secondary-button">
-                    I'm a senior
-                </a>
-
-            </div>
+            <a href="YOUR_FAMILY_FORM_LINK" class="button button-secondary">
+              I'm a family member
+            </a>
+          </div>
 
         </div>
-
+      </div>
     </section>
 
 
-    <!-- AUDIENCE -->
+    <!-- WHAT WE'RE EXPLORING -->
 
-    <section class="section">
+    <section class="exploring">
+      <div class="container">
 
-        <div class="section-header">
+        <div class="section-label">
+          What we're exploring
+        </div>
 
-            <div class="section-label">
-                Why Beside?
-            </div>
+        <h2>
+          A little help with everyday life.
+        </h2>
 
-            <h2>
-                Because needing a little help doesn't mean giving up independence.
-            </h2>
+        <div class="ideas">
 
+          <div class="idea">
+            <h3>Everyday help</h3>
             <p>
-                We're exploring a service that sits somewhere between
-                family, friendship and practical everyday support.
+              Groceries, medicines, errands and the little things that need doing.
             </p>
+          </div>
 
-        </div>
-
-
-        <div class="audience">
-
-            <div class="audience-card">
-
-                <h3>
-                    For seniors
-                </h3>
-
-                <p>
-                    Need someone to pick up your medicines?
-                    Want company on a walk? Need help with shopping,
-                    technology, appointments or simply want someone
-                    to spend some time with?
-                </p>
-
-            </div>
-
-
-            <div class="audience-card">
-
-                <h3>
-                    For families
-                </h3>
-
-                <p>
-                    Living in another city or country doesn't mean
-                    you stop worrying about your parents. We're
-                    exploring a way to give families a trusted person
-                    nearby when they can't personally be there.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- SERVICES -->
-
-    <section class="section services-section">
-
-        <div class="section-header">
-
-            <div class="section-label">
-                What we're exploring
-            </div>
-
-            <h2>
-                Practical help. Real company.
-            </h2>
-
+          <div class="idea">
+            <h3>Companionship</h3>
             <p>
-                These are some of the things we're considering.
-                Your feedback will help us decide what should actually exist.
+              Someone to talk to, go for a walk with, or simply spend time with.
             </p>
+          </div>
+
+          <div class="idea">
+            <h3>Going out</h3>
+            <p>
+              Help getting to appointments, parks, outings and places outside home.
+            </p>
+          </div>
 
         </div>
 
-
-        <div class="services">
-
-            <div class="service-card">
-
-                <div class="service-number">
-                    01
-                </div>
-
-                <h3>
-                    Everyday Help
-                </h3>
-
-                <p>
-                    Groceries, medicines, errands, parcels,
-                    technology help and other everyday tasks.
-                </p>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <div class="service-number">
-                    02
-                </div>
-
-                <h3>
-                    Companionship
-                </h3>
-
-                <p>
-                    Conversation, walks, coffee, hobbies,
-                    games, movies or simply having someone around.
-                </p>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <div class="service-number">
-                    03
-                </div>
-
-                <h3>
-                    Out & About
-                </h3>
-
-                <p>
-                    Doctor appointments, parks, shopping,
-                    restaurants, temples, family events and more.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- HOW IT WORKS -->
-
-    <section class="section">
-
-        <div class="section-header">
-
-            <div class="section-label">
-                The idea
-            </div>
-
-            <h2>
-                Simple by design.
-            </h2>
-
-        </div>
-
-
-        <div class="steps">
-
-            <div class="step">
-
-                <div class="step-number">
-                    1
-                </div>
-
-                <h3>
-                    Tell us what you need
-                </h3>
-
-                <p>
-                    A quick conversation helps us understand
-                    what kind of support would actually be useful.
-                </p>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    2
-                </div>
-
-                <h3>
-                    Meet your companion
-                </h3>
-
-                <p>
-                    The goal is a familiar, trusted person —
-                    not a different stranger every time.
-                </p>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    3
-                </div>
-
-                <h3>
-                    Family stays informed
-                </h3>
-
-                <p>
-                    For families who want it, we'll provide
-                    simple updates after visits and outings.
-                </p>
-
-            </div>
-
-        </div>
-
+      </div>
     </section>
 
 
     <!-- RESEARCH -->
 
-    <section class="section research" id="research">
+    <section class="research">
+      <div class="container">
 
-        <div class="research-content">
-
-            <div class="section-label">
-                We're researching this idea
-            </div>
-
-            <h2>
-                Help us build something seniors actually need.
-            </h2>
-
-            <p>
-                Beside is currently in the research stage.
-                We're speaking with seniors and families in Bengaluru
-                to understand what kind of support would genuinely
-                make a difference.
-            </p>
-
-            <p>
-                Your answers will help us shape the service,
-                the pricing and the experience.
-            </p>
-
-
-            <div class="research-buttons">
-
-                <!-- REPLACE THESE LINKS WITH YOUR GOOGLE FORM LINKS -->
-
-                <a href="YOUR_SENIOR_FORM_LINK"
-                   class="primary-button"
-                   target="_blank">
-                    I'm a senior
-                </a>
-
-                <a href="YOUR_FAMILY_FORM_LINK"
-                   class="primary-button"
-                   target="_blank">
-                    I'm a family member
-                </a>
-
-            </div>
-
+        <div class="section-label">
+          Help us get it right
         </div>
 
-    </section>
-
-
-    <!-- TRUST -->
-
-    <section class="section trust">
-
-        <div class="trust-content">
-
-            <div class="section-label">
-                What matters to us
-            </div>
-
-            <h2>
-                Trust comes first.
-            </h2>
-
-            <p>
-                If this idea becomes a real service, every companion
-                should be carefully selected, background-verified,
-                trained and held to clear standards around privacy,
-                safety and dignity.
-            </p>
-
-
-            <div class="trust-list">
-
-                <div class="trust-item">
-                    Background verified
-                </div>
-
-                <div class="trust-item">
-                    Trained companions
-                </div>
-
-                <div class="trust-item">
-                    Privacy focused
-                </div>
-
-                <div class="trust-item">
-                    Safety first
-                </div>
-
-                <div class="trust-item">
-                    Your dignity matters
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <div class="footer-logo">
-            beside
-        </div>
+        <h2>
+          This starts with listening.
+        </h2>
 
         <p>
-            When you can't be there, we're there.
+          We're speaking with seniors and families to understand what would
+          actually be useful, what would build trust, and what shouldn't be built at all.
         </p>
 
-        <p style="margin-top: 12px;">
-            © 2026 Beside. Research project.
-        </p>
+        <div class="buttons" style="justify-content:center;">
 
-    </footer>
+          <a href="YOUR_SENIOR_FORM_LINK" class="button button-primary">
+            Share your experience
+          </a>
 
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer>
+    beside — We're exploring a better way to support seniors.
+  </footer>
 
 </body>
 </html>
-```
