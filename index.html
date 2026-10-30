@@ -6,11 +6,20 @@
 
   <title>beside — We're exploring a new kind of senior support</title>
 
+  <meta
+    name="description"
+    content="Beside is exploring a trusted helping hand for seniors and their families. The service is not available yet."
+  >
+
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -65,13 +74,13 @@
     ========================= */
 
     .hero {
-      min-height: 620px;
+      min-height: 650px;
       display: flex;
       align-items: center;
     }
 
     .hero-content {
-      max-width: 780px;
+      max-width: 800px;
       padding: 90px 0;
     }
 
@@ -98,8 +107,12 @@
       line-height: 1.55;
       color: #5d6865;
       max-width: 650px;
-      margin-bottom: 36px;
+      margin-bottom: 30px;
     }
+
+    /* =========================
+       AVAILABILITY NOTICE
+    ========================= */
 
     .availability {
       display: inline-flex;
@@ -111,7 +124,7 @@
       border-radius: 12px;
       font-size: 14px;
       font-weight: 650;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .dot {
@@ -125,8 +138,8 @@
     .interest-text {
       color: #66706d;
       font-size: 16px;
-      max-width: 650px;
-      margin-bottom: 24px;
+      max-width: 620px;
+      margin-bottom: 26px;
     }
 
     /* =========================
@@ -171,7 +184,7 @@
     }
 
     /* =========================
-       WHAT WE'RE EXPLORING
+       EXPLORING
     ========================= */
 
     .exploring {
@@ -194,6 +207,7 @@
       font-size: 38px;
       letter-spacing: -1.5px;
       margin-bottom: 42px;
+      max-width: 700px;
     }
 
     .ideas {
@@ -216,32 +230,6 @@
     .idea p {
       color: #68716e;
       font-size: 15px;
-    }
-
-    /* =========================
-       RESEARCH
-    ========================= */
-
-    .research {
-      padding: 90px 0;
-      text-align: center;
-    }
-
-    .research h2 {
-      font-size: 42px;
-      letter-spacing: -1.5px;
-      margin-bottom: 16px;
-    }
-
-    .research p {
-      max-width: 570px;
-      margin: 0 auto 30px;
-      color: #66706d;
-      font-size: 17px;
-    }
-
-    .research-buttons {
-      justify-content: center;
     }
 
     /* =========================
@@ -287,11 +275,6 @@
         padding: 70px 0;
       }
 
-      .eyebrow {
-        font-size: 11px;
-        margin-bottom: 18px;
-      }
-
       h1 {
         font-size: 52px;
         letter-spacing: -2.5px;
@@ -309,8 +292,7 @@
         grid-template-columns: 1fr;
       }
 
-      .exploring h2,
-      .research h2 {
+      .exploring h2 {
         font-size: 32px;
       }
 
@@ -319,8 +301,8 @@
         text-align: center;
       }
 
-      .research {
-        padding: 70px 0;
+      .availability {
+        font-size: 13px;
       }
     }
   </style>
@@ -378,17 +360,32 @@
           </div>
 
           <p class="interest-text">
-            Would a service like this be useful to you or someone you care about?
-            Tell us what you think.
+            Interested in a service like this for yourself or someone you care about?
+            We'd love to hear from you.
           </p>
 
           <div class="buttons">
 
-            <a href="YOUR_SENIOR_FORM_LINK" class="button button-primary">
+            <!-- SENIOR FORM -->
+
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfpfdabBFit3emANk5eO_i3ZZ7dBMCb1F3gJU7NFUVtGKlzig/viewform?usp=header"
+              class="button button-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               I'm a senior
             </a>
 
-            <a href="YOUR_FAMILY_FORM_LINK" class="button button-secondary">
+
+            <!-- FAMILY FORM -->
+
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSc5qvDlyiaFkrZuRdgMegZgxEQfVnpJeCtRyy1lezLK7sZ8Cw/viewform?usp=publish-editor"
+              class="button button-secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               I'm a family member
             </a>
 
@@ -463,40 +460,6 @@
 
     </section>
 
-
-    <!-- =========================
-         RESEARCH
-    ========================= -->
-
-    <section class="research">
-
-      <div class="container">
-
-        <div class="section-label">
-          Help us get it right
-        </div>
-
-        <h2>
-          This starts with listening.
-        </h2>
-
-        <p>
-          We're speaking with seniors and families to understand what would
-          actually be useful, what would build trust, and what shouldn't be built at all.
-        </p>
-
-        <div class="buttons research-buttons">
-
-          <a href="YOUR_SENIOR_FORM_LINK" class="button button-primary">
-            Share your experience
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
   </main>
 
 
@@ -505,9 +468,7 @@
   ========================= -->
 
   <footer>
-
     beside — We're exploring a better way to support seniors.
-
   </footer>
 
 </body>
