@@ -25,7 +25,9 @@
       margin: auto;
     }
 
-    /* HEADER */
+    /* =========================
+       HEADER
+    ========================= */
 
     header {
       height: 82px;
@@ -58,7 +60,9 @@
       border-radius: 30px;
     }
 
-    /* HERO */
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
       min-height: 620px;
@@ -107,7 +111,7 @@
       border-radius: 12px;
       font-size: 14px;
       font-weight: 650;
-      margin-bottom: 42px;
+      margin-bottom: 20px;
     }
 
     .dot {
@@ -115,9 +119,19 @@
       height: 9px;
       background: #c56b4a;
       border-radius: 50%;
+      flex-shrink: 0;
     }
 
-    /* BUTTONS */
+    .interest-text {
+      color: #66706d;
+      font-size: 16px;
+      max-width: 650px;
+      margin-bottom: 24px;
+    }
+
+    /* =========================
+       BUTTONS
+    ========================= */
 
     .buttons {
       display: flex;
@@ -156,7 +170,9 @@
       transform: translateY(-2px);
     }
 
-    /* EXPLORING */
+    /* =========================
+       WHAT WE'RE EXPLORING
+    ========================= */
 
     .exploring {
       background: #fffdf9;
@@ -202,7 +218,9 @@
       font-size: 15px;
     }
 
-    /* RESEARCH */
+    /* =========================
+       RESEARCH
+    ========================= */
 
     .research {
       padding: 90px 0;
@@ -222,7 +240,13 @@
       font-size: 17px;
     }
 
-    /* FOOTER */
+    .research-buttons {
+      justify-content: center;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       padding: 30px 0;
@@ -232,12 +256,22 @@
       font-size: 13px;
     }
 
-    /* MOBILE */
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 700px) {
 
       header {
         height: 72px;
+      }
+
+      .header-inner {
+        width: 88%;
+      }
+
+      .logo {
+        font-size: 23px;
       }
 
       .status {
@@ -250,7 +284,12 @@
       }
 
       .hero-content {
-        padding: 75px 0;
+        padding: 70px 0;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+        margin-bottom: 18px;
       }
 
       h1 {
@@ -260,6 +299,10 @@
 
       .intro {
         font-size: 18px;
+      }
+
+      .interest-text {
+        font-size: 15px;
       }
 
       .ideas {
@@ -275,26 +318,45 @@
         width: 100%;
         text-align: center;
       }
+
+      .research {
+        padding: 70px 0;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- =========================
+       HEADER
+  ========================= -->
+
   <header>
     <div class="header-inner">
-      <div class="logo">beside</div>
-      <div class="status">We're exploring this idea</div>
+
+      <div class="logo">
+        beside
+      </div>
+
+      <div class="status">
+        We're exploring this idea
+      </div>
+
     </div>
   </header>
 
 
   <main>
 
-    <!-- HERO -->
+    <!-- =========================
+         HERO
+    ========================= -->
 
     <section class="hero">
+
       <div class="container">
+
         <div class="hero-content">
 
           <div class="eyebrow">
@@ -310,16 +372,18 @@
             with everyday life — and gives their families peace of mind.
           </p>
 
-         <div class="availability">
-  <span class="dot"></span>
-  Beside is not available yet. We're still exploring.
-</div>
+          <div class="availability">
+            <span class="dot"></span>
+            Beside is not available yet. We're still exploring.
+          </div>
 
-<p style="margin-top: -20px; margin-bottom: 24px; color: #66706d; font-size: 16px;">
-  Would a service like this be useful to you or someone you care about? Tell us what you think.
-</p>
+          <p class="interest-text">
+            Would a service like this be useful to you or someone you care about?
+            Tell us what you think.
+          </p>
 
-<div class="buttons">
+          <div class="buttons">
+
             <a href="YOUR_SENIOR_FORM_LINK" class="button button-primary">
               I'm a senior
             </a>
@@ -327,16 +391,22 @@
             <a href="YOUR_FAMILY_FORM_LINK" class="button button-secondary">
               I'm a family member
             </a>
+
           </div>
 
         </div>
+
       </div>
+
     </section>
 
 
-    <!-- WHAT WE'RE EXPLORING -->
+    <!-- =========================
+         WHAT WE'RE EXPLORING
+    ========================= -->
 
     <section class="exploring">
+
       <div class="container">
 
         <div class="section-label">
@@ -350,35 +420,56 @@
         <div class="ideas">
 
           <div class="idea">
-            <h3>Everyday help</h3>
+
+            <h3>
+              Everyday help
+            </h3>
+
             <p>
               Groceries, medicines, errands and the little things that need doing.
             </p>
+
           </div>
 
+
           <div class="idea">
-            <h3>Companionship</h3>
+
+            <h3>
+              Companionship
+            </h3>
+
             <p>
               Someone to talk to, go for a walk with, or simply spend time with.
             </p>
+
           </div>
 
+
           <div class="idea">
-            <h3>Going out</h3>
+
+            <h3>
+              Going out
+            </h3>
+
             <p>
               Help getting to appointments, parks, outings and places outside home.
             </p>
+
           </div>
 
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- RESEARCH -->
+    <!-- =========================
+         RESEARCH
+    ========================= -->
 
     <section class="research">
+
       <div class="container">
 
         <div class="section-label">
@@ -394,7 +485,7 @@
           actually be useful, what would build trust, and what shouldn't be built at all.
         </p>
 
-        <div class="buttons" style="justify-content:center;">
+        <div class="buttons research-buttons">
 
           <a href="YOUR_SENIOR_FORM_LINK" class="button button-primary">
             Share your experience
@@ -403,13 +494,20 @@
         </div>
 
       </div>
+
     </section>
 
   </main>
 
 
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
   <footer>
+
     beside — We're exploring a better way to support seniors.
+
   </footer>
 
 </body>
