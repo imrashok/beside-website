@@ -1,475 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>beside — We're exploring a new kind of senior support</title>
+    <title>beside — We're exploring a new kind of senior support</title>
 
-  <meta
-    name="description"
-    content="Beside is exploring a trusted helping hand for seniors and their families. The service is not available yet."
-  >
+    <meta name="description" content="Beside is exploring a new kind of senior support service. We're not available yet, but we'd love to hear from seniors and families.">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f3ed;
+            color: #244b45;
+        }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f7f3ed;
-      color: #24443f;
-      line-height: 1.6;
-    }
+        header {
+            height: 66px;
+            padding: 0 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fffdf9;
+            border-bottom: 1px solid #e8e1d8;
+        }
 
-    .container {
-      width: min(1100px, 90%);
-      margin: auto;
-    }
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            color: #173f3a;
+        }
 
-    /* =========================
-       HEADER
-    ========================= */
+        .status {
+            background: #edf1ed;
+            color: #173f3a;
+            padding: 11px 17px;
+            border-radius: 24px;
+            font-size: 13px;
+            font-weight: 600;
+        }
 
-    header {
-      height: 82px;
-      background: #fffdf9;
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid #eee8df;
-    }
+        .hero {
+            min-height: 715px;
+            padding: 96px 16px 90px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
 
-    .header-inner {
-      width: min(1100px, 90%);
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .eyebrow {
+            color: #b65d38;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 32px;
+        }
 
-    .logo {
-      font-size: 25px;
-      font-weight: 750;
-      letter-spacing: -1px;
-    }
+        h1 {
+            max-width: 720px;
+            margin: 0;
+            font-size: clamp(58px, 6vw, 82px);
+            line-height: 0.98;
+            letter-spacing: -4px;
+            color: #244b45;
+        }
 
-    .status {
-      font-size: 13px;
-      font-weight: 600;
-      color: #24443f;
-      background: #e8eee9;
-      padding: 9px 16px;
-      border-radius: 30px;
-    }
+        .intro {
+            max-width: 650px;
+            margin-top: 30px;
+            font-size: 20px;
+            line-height: 1.65;
+            color: #52656b;
+        }
 
-    /* =========================
-       HERO
-    ========================= */
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            margin-top: 28px;
+            padding: 15px 18px;
+            background: #fffdf9;
+            border: 1px solid #ddd4c9;
+            border-radius: 12px;
+            color: #173f3a;
+            font-size: 14px;
+            font-weight: 700;
+        }
 
-    .hero {
-      min-height: 650px;
-      display: flex;
-      align-items: center;
-    }
+        .availability-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #c56a45;
+        }
 
-    .hero-content {
-      max-width: 800px;
-      padding: 90px 0;
-    }
+        .interest {
+            max-width: 650px;
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 1.65;
+            color: #52656b;
+        }
 
-    .eyebrow {
-      display: inline-block;
-      font-size: 13px;
-      font-weight: 750;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #a4633e;
-      margin-bottom: 24px;
-    }
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
 
-    h1 {
-      font-size: clamp(48px, 7vw, 82px);
-      line-height: 0.98;
-      letter-spacing: -4px;
-      max-width: 800px;
-      margin-bottom: 28px;
-    }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 17px 22px;
+            border-radius: 30px;
+            background: #fffdf9;
+            color: #173f3a;
+            border: 1px solid #d9d1c7;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
 
-    .intro {
-      font-size: 21px;
-      line-height: 1.55;
-      color: #5d6865;
-      max-width: 650px;
-      margin-bottom: 30px;
-    }
+        .btn:hover {
+            background: #244b45;
+            color: #ffffff;
+            border-color: #244b45;
+            transform: translateY(-2px);
+        }
 
-    /* =========================
-       AVAILABILITY NOTICE
-    ========================= */
+        .exploring {
+            background: #fffdf9;
+            border-top: 1px solid #e8e1d8;
+            padding: 82px 16px;
+        }
 
-    .availability {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #fffdf9;
-      border: 1px solid #ddd5ca;
-      padding: 13px 18px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 650;
-      margin-bottom: 18px;
-    }
+        .exploring-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
 
-    .dot {
-      width: 9px;
-      height: 9px;
-      background: #c56b4a;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
+        .section-label {
+            color: #b65d38;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
 
-    .interest-text {
-      color: #66706d;
-      font-size: 16px;
-      max-width: 620px;
-      margin-bottom: 26px;
-    }
+        .section-title {
+            font-size: 42px;
+            letter-spacing: -1.5px;
+            margin: 0 0 45px;
+            color: #244b45;
+        }
 
-    /* =========================
-       BUTTONS
-    ========================= */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
 
-    .buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+        .card {
+            padding: 30px;
+            border: 1px solid #e3dbd1;
+            border-radius: 18px;
+            background: #f7f3ed;
+        }
 
-    .button {
-      display: inline-block;
-      padding: 15px 23px;
-      border-radius: 40px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 15px;
-      transition: 0.2s ease;
-    }
+        .card h3 {
+            margin: 0 0 12px;
+            font-size: 21px;
+            color: #244b45;
+        }
 
-    .button-primary {
-      background: #24443f;
-      color: white;
-    }
+        .card p {
+            margin: 0;
+            color: #607077;
+            line-height: 1.6;
+            font-size: 15px;
+        }
 
-    .button-primary:hover {
-      background: #183630;
-      transform: translateY(-2px);
-    }
+        footer {
+            padding: 30px 16px;
+            background: #fffdf9;
+            border-top: 1px solid #e8e1d8;
+            color: #718087;
+            font-size: 13px;
+        }
 
-    .button-secondary {
-      background: #fffdf9;
-      color: #24443f;
-      border: 1px solid #d9d0c5;
-    }
+        .footer-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
 
-    .button-secondary:hover {
-      border-color: #24443f;
-      transform: translateY(-2px);
-    }
+        @media (max-width: 700px) {
+            header {
+                padding: 0 16px;
+            }
 
-    /* =========================
-       EXPLORING
-    ========================= */
+            .status {
+                font-size: 11px;
+                padding: 9px 12px;
+            }
 
-    .exploring {
-      background: #fffdf9;
-      padding: 80px 0;
-      border-top: 1px solid #eee8df;
-      border-bottom: 1px solid #eee8df;
-    }
+            .hero {
+                min-height: auto;
+                padding: 70px 16px 75px;
+            }
 
-    .section-label {
-      font-size: 12px;
-      font-weight: 750;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #a4633e;
-      margin-bottom: 14px;
-    }
+            h1 {
+                font-size: 54px;
+                letter-spacing: -3px;
+            }
 
-    .exploring h2 {
-      font-size: 38px;
-      letter-spacing: -1.5px;
-      margin-bottom: 42px;
-      max-width: 700px;
-    }
+            .intro {
+                font-size: 18px;
+            }
 
-    .ideas {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
+            .buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
 
-    .idea {
-      padding: 28px;
-      background: #f7f3ed;
-      border-radius: 16px;
-    }
+            .btn {
+                width: 100%;
+            }
 
-    .idea h3 {
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
+            .exploring {
+                padding: 65px 16px;
+            }
 
-    .idea p {
-      color: #68716e;
-      font-size: 15px;
-    }
+            .section-title {
+                font-size: 34px;
+            }
 
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      padding: 30px 0;
-      background: #24443f;
-      color: #dfe8e4;
-      text-align: center;
-      font-size: 13px;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 700px) {
-
-      header {
-        height: 72px;
-      }
-
-      .header-inner {
-        width: 88%;
-      }
-
-      .logo {
-        font-size: 23px;
-      }
-
-      .status {
-        font-size: 11px;
-        padding: 7px 11px;
-      }
-
-      .hero {
-        min-height: auto;
-      }
-
-      .hero-content {
-        padding: 70px 0;
-      }
-
-      h1 {
-        font-size: 52px;
-        letter-spacing: -2.5px;
-      }
-
-      .intro {
-        font-size: 18px;
-      }
-
-      .interest-text {
-        font-size: 15px;
-      }
-
-      .ideas {
-        grid-template-columns: 1fr;
-      }
-
-      .exploring h2 {
-        font-size: 32px;
-      }
-
-      .button {
-        width: 100%;
-        text-align: center;
-      }
-
-      .availability {
-        font-size: 13px;
-      }
-    }
-  </style>
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================= -->
+    <header>
+        <div class="logo">beside</div>
+        <div class="status">We're exploring this idea</div>
+    </header>
 
-  <header>
-    <div class="header-inner">
+    <main>
 
-      <div class="logo">
-        beside
-      </div>
+        <section class="hero">
 
-      <div class="status">
-        We're exploring this idea
-      </div>
+            <div class="eyebrow">A NEW KIND OF SENIOR SUPPORT</div>
 
-    </div>
-  </header>
+            <h1>
+                When you can't be there, we're there.
+            </h1>
 
-
-  <main>
-
-    <!-- =========================
-         HERO
-    ========================= -->
-
-    <section class="hero">
-
-      <div class="container">
-
-        <div class="hero-content">
-
-          <div class="eyebrow">
-            A new kind of senior support
-          </div>
-
-          <h1>
-            When you can't be there, we're there.
-          </h1>
-
-          <p class="intro">
-            We're exploring a service that gives seniors a trusted helping hand
-            with everyday life — and gives their families peace of mind.
-          </p>
-
-          <div class="availability">
-            <span class="dot"></span>
-            Beside is not available yet. We're still exploring.
-          </div>
-
-          <p class="interest-text">
-            Interested in a service like this for yourself or someone you care about?
-            We'd love to hear from you.
-          </p>
-
-          <div class="buttons">
-
-            <!-- SENIOR FORM -->
-
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSfpfdabBFit3emANk5eO_i3ZZ7dBMCb1F3gJU7NFUVtGKlzig/viewform?usp=header"
-              class="button button-primary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              I'm a senior
-            </a>
-
-
-            <!-- FAMILY FORM -->
-
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSc5qvDlyiaFkrZuRdgMegZgxEQfVnpJeCtRyy1lezLK7sZ8Cw/viewform?usp=publish-editor"
-              class="button button-secondary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              I'm a family member
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         WHAT WE'RE EXPLORING
-    ========================= -->
-
-    <section class="exploring">
-
-      <div class="container">
-
-        <div class="section-label">
-          What we're exploring
-        </div>
-
-        <h2>
-          A little help with everyday life.
-        </h2>
-
-        <div class="ideas">
-
-          <div class="idea">
-
-            <h3>
-              Everyday help
-            </h3>
-
-            <p>
-              Groceries, medicines, errands and the little things that need doing.
+            <p class="intro">
+                We're exploring a service that gives seniors a trusted helping hand
+                with everyday life — and gives their families peace of mind.
             </p>
 
-          </div>
+            <div class="availability">
+                <span class="availability-dot"></span>
+                Beside is not available yet. We're still exploring.
+            </div>
 
-
-          <div class="idea">
-
-            <h3>
-              Companionship
-            </h3>
-
-            <p>
-              Someone to talk to, go for a walk with, or simply spend time with.
+            <p class="interest">
+                Interested in a service like this for yourself or someone you care about?
+                We'd love to hear from you.
             </p>
 
-          </div>
+            <div class="buttons">
 
+                <a
+                    class="btn"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfpfdabBFit3emANk5eO_i3ZZ7dBMCb1F3gJU7NFUVtGKlzig/viewform?usp=header"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    I'm a senior
+                </a>
 
-          <div class="idea">
+                <a
+                    class="btn"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSc5qvDlyiaFkrZuRdgMegZgxEQfVnpJeCtRyy1lezLK7sZ8Cw/viewform?usp=publish-editor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    I'm a family member
+                </a>
 
-            <h3>
-              Going out
-            </h3>
+            </div>
 
-            <p>
-              Help getting to appointments, parks, outings and places outside home.
-            </p>
+        </section>
 
-          </div>
+        <section class="exploring">
 
+            <div class="exploring-inner">
+
+                <div class="section-label">WHAT WE'RE EXPLORING</div>
+
+                <h2 class="section-title">
+                    A little help with everyday life.
+                </h2>
+
+                <div class="cards">
+
+                    <div class="card">
+                        <h3>Everyday help</h3>
+                        <p>
+                            Grocery runs, pharmacy visits, errands, technology help,
+                            and the little things that can become difficult to manage alone.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Companionship</h3>
+                        <p>
+                            Someone to talk to, share a cup of tea with, take a walk,
+                            or simply spend some time together.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Going out</h3>
+                        <p>
+                            A helping hand for doctor visits, parks, appointments,
+                            shopping trips, or simply getting out of the house.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            beside — We're exploring a better way to support seniors.
         </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
-  <footer>
-    beside — We're exploring a better way to support seniors.
-  </footer>
+    </footer>
 
 </body>
 </html>
