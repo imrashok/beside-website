@@ -8,6 +8,10 @@
 
     <style>
 
+        /* =========================
+           GLOBAL
+        ========================= */
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -57,22 +61,24 @@
         .logo {
             height: 38px;
             width: auto;
+
             display: block;
         }
 
         .brand-name {
             color: #174f47;
 
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 700;
 
-            letter-spacing: -0.8px;
-            line-height: 1;
+            letter-spacing: -1.5px;
+
+            text-transform: lowercase;
         }
 
 
         /* =========================
-           HERO / BANNER
+           HERO / DESKTOP BANNER
         ========================= */
 
         .hero {
@@ -89,7 +95,7 @@
         }
 
 
-        /* Soft cream fade on the left */
+        /* Soft cream fade over left side */
 
         .hero::before {
             content: "";
@@ -254,6 +260,7 @@
             display: inline-flex;
 
             align-items: center;
+
             justify-content: center;
 
             padding: 15px 24px;
@@ -267,6 +274,7 @@
             color: #173f3a;
 
             font-size: 15px;
+
             font-weight: 700;
 
             text-decoration: none;
@@ -415,7 +423,7 @@
         ========================= */
 
         footer {
-            padding: 30px 7%;
+            padding: 35px 7%;
 
             background: #174f47;
 
@@ -474,187 +482,216 @@
 
         @media (max-width: 600px) {
 
-            .site-header {
-                height: 64px;
+            /* Header */
 
-                padding: 0 20px;
+            .site-header {
+                height: 76px;
+
+                padding: 0 24px;
             }
 
             .logo {
-                height: 34px;
+                height: 38px;
             }
 
             .brand-name {
-                font-size: 22px;
+                font-size: 27px;
             }
 
 
-            /*
-            Mobile hero:
-            The photograph is moved lower so it doesn't sit
-            directly underneath the text.
-            */
+            /* Mobile hero */
 
             .hero {
-                min-height: auto;
 
-                background-position: center bottom;
+                /*
+                IMPORTANT:
+                On phones we use Banner-Mobile.png
+                instead of the desktop Banner.png.
+                */
 
-                background-size: 100% auto;
+                min-height: 900px;
 
-                background-color: #f7f3ed;
+                background-image: url("Banner-Mobile.png");
 
-                padding-bottom: 420px;
+                background-size: cover;
+
+                background-position: center top;
+
+                background-repeat: no-repeat;
             }
 
 
             /*
-            The cream background remains behind the text.
+            The mobile image already has a large
+            soft/light area at the top, so we use
+            a much lighter overlay.
             */
 
             .hero::before {
+
                 background: linear-gradient(
                     180deg,
-                    rgba(247, 243, 237, 1) 0%,
-                    rgba(247, 243, 237, 1) 58%,
-                    rgba(247, 243, 237, 0.96) 68%,
-                    rgba(247, 243, 237, 0.35) 88%,
-                    rgba(247, 243, 237, 0) 100%
+                    rgba(247, 243, 237, 0.12) 0%,
+                    rgba(247, 243, 237, 0.15) 45%,
+                    rgba(247, 243, 237, 0.45) 70%,
+                    rgba(247, 243, 237, 0.70) 100%
                 );
             }
 
 
+            /* Hero content */
+
             .hero-content {
+
                 width: auto;
 
+                max-width: none;
+
                 margin-left: 24px;
+
                 margin-right: 24px;
 
-                padding-top: 60px;
-                padding-bottom: 40px;
+                padding-top: 90px;
+
+                padding-bottom: 80px;
             }
 
+
+            /* Eyebrow */
 
             .eyebrow {
-                font-size: 12px;
-
-                letter-spacing: 1.5px;
-
-                margin-bottom: 20px;
-            }
-
-
-            /*
-            Slightly smaller mobile heading so
-            "be" doesn't get stranded.
-            */
-
-            .hero h1 {
-                max-width: 100%;
 
                 margin-bottom: 22px;
 
-                font-size: 42px;
+                font-size: 12px;
 
-                line-height: 1.04;
+                letter-spacing: 1.6px;
+            }
+
+
+            /* Heading */
+
+            .hero h1 {
+
+                margin-bottom: 24px;
+
+                font-size: 48px;
+
+                line-height: 1.02;
 
                 letter-spacing: -2px;
             }
 
 
-            .hero-description {
-                max-width: 100%;
+            /* Description */
 
-                font-size: 17px;
+            .hero-description {
+
+                margin-bottom: 28px;
+
+                font-size: 18px;
 
                 line-height: 1.55;
-
-                margin-bottom: 25px;
             }
 
 
-            /*
-            Smaller status box on mobile.
-            */
+            /* Status */
 
             .status {
+
                 width: 100%;
 
-                padding: 12px 15px;
+                padding: 16px 18px;
 
-                gap: 10px;
+                margin-bottom: 28px;
 
-                margin-bottom: 22px;
-
-                font-size: 13px;
+                font-size: 15px;
 
                 line-height: 1.4;
             }
 
-            .status-dot {
-                width: 8px;
-                height: 8px;
-            }
 
+            /* CTA */
 
             .cta-text {
-                max-width: 100%;
 
-                margin-bottom: 22px;
+                margin-bottom: 25px;
 
-                font-size: 16px;
+                font-size: 17px;
 
                 line-height: 1.55;
             }
 
 
-            /*
-            Stack buttons vertically.
-            */
+            /* Buttons */
 
             .buttons {
+
+                display: flex;
+
                 flex-direction: column;
 
-                align-items: stretch;
+                gap: 14px;
 
-                gap: 12px;
+                width: 100%;
             }
 
             .button {
+
                 width: 100%;
 
-                padding: 15px 20px;
+                min-height: 64px;
 
-                font-size: 16px;
+                padding: 16px 22px;
+
+                font-size: 17px;
             }
 
 
             /* Exploring section */
 
             .exploring {
-                padding: 70px 24px 80px;
+
+                padding: 75px 24px 80px;
             }
 
             .exploring h2 {
-                font-size: 38px;
+
+                font-size: 40px;
 
                 letter-spacing: -1.5px;
             }
 
             .section-intro {
+
                 font-size: 17px;
+
+                margin-bottom: 40px;
             }
 
             .exploring-grid {
+
                 grid-template-columns: 1fr;
 
                 gap: 16px;
             }
 
             .exploring-card {
+
                 padding: 26px;
             }
 
+
+            /* Footer */
+
+            footer {
+
+                padding: 30px 24px;
+
+                font-size: 13px;
+
+                line-height: 1.5;
+            }
         }
 
     </style>
@@ -664,9 +701,9 @@
 <body>
 
 
-    <!-- =========================
+    <!-- =========================================================
          HEADER
-    ========================= -->
+    ========================================================== -->
 
     <header class="site-header">
 
@@ -678,9 +715,7 @@
                 class="logo"
             >
 
-            <span class="brand-name">
-                beside
-            </span>
+            <span class="brand-name">beside</span>
 
         </a>
 
@@ -688,13 +723,14 @@
 
 
 
-    <!-- =========================
+    <!-- =========================================================
          HERO
-    ========================= -->
+    ========================================================== -->
 
     <section class="hero">
 
         <div class="hero-content">
+
 
             <div class="eyebrow">
                 A new kind of senior support
@@ -733,6 +769,9 @@
 
             <div class="buttons">
 
+
+                <!-- SENIOR GOOGLE FORM -->
+
                 <a
                     href="https://docs.google.com/forms/d/e/1FAIpQLSfpfdabBFit3emANk5eO_i3ZZ7dBMCb1F3gJU7NFUVtGKlzig/viewform?usp=header"
                     class="button"
@@ -743,6 +782,8 @@
                 </a>
 
 
+                <!-- FAMILY GOOGLE FORM -->
+
                 <a
                     href="https://docs.google.com/forms/d/e/1FAIpQLSc5qvDlyiaFkrZuRdgMegZgxEQfVnpJeCtRyy1lezLK7sZ8Cw/viewform?usp=header"
                     class="button"
@@ -752,6 +793,7 @@
                     I'm a family member
                 </a>
 
+
             </div>
 
         </div>
@@ -760,13 +802,14 @@
 
 
 
-    <!-- =========================
+    <!-- =========================================================
          WHAT WE'RE EXPLORING
-    ========================= -->
+    ========================================================== -->
 
     <section class="exploring">
 
         <div class="exploring-inner">
+
 
             <div class="section-label">
                 What we're exploring
@@ -774,19 +817,22 @@
 
 
             <h2>
-                Everyday support, without making life feel smaller.
+                Support that feels human.
             </h2>
 
 
             <p class="section-intro">
-                Beside is an idea we're exploring to help seniors stay
-                independent, connected and comfortable in their everyday
-                lives — while giving their families greater peace of mind.
+                We're exploring a service designed around the everyday
+                things that become harder when family can't always be
+                there in person.
             </p>
+
 
 
             <div class="exploring-grid">
 
+
+                <!-- CARD 1 -->
 
                 <div class="exploring-card">
 
@@ -799,12 +845,16 @@
                     </h3>
 
                     <p>
-                        Help with the little things that become difficult
-                        when family members can't always be there.
+                        A helping hand with the practical things —
+                        pharmacy visits, shopping, paperwork and other
+                        everyday errands.
                     </p>
 
                 </div>
 
+
+
+                <!-- CARD 2 -->
 
                 <div class="exploring-card">
 
@@ -813,16 +863,20 @@
                     </span>
 
                     <h3>
-                        Companionship
+                        Company & connection
                     </h3>
 
                     <p>
-                        Someone to talk to, have tea with, go for a walk,
-                        or simply spend some time together.
+                        Someone to talk to, go for a walk with, have
+                        a cup of tea with, or simply spend some time
+                        together.
                     </p>
 
                 </div>
 
+
+
+                <!-- CARD 3 -->
 
                 <div class="exploring-card">
 
@@ -835,8 +889,9 @@
                     </h3>
 
                     <p>
-                        Support with doctor visits, appointments and
-                        getting out of the house when needed.
+                        Support with getting to appointments, going
+                        out, attending activities, or simply getting
+                        out of the house.
                     </p>
 
                 </div>
@@ -850,9 +905,9 @@
 
 
 
-    <!-- =========================
+    <!-- =========================================================
          FOOTER
-    ========================= -->
+    ========================================================== -->
 
     <footer>
 
