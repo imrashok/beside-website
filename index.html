@@ -6,9 +6,13 @@
 
     <title>beside — We're exploring a new kind of senior support</title>
 
-    <meta name="description" content="Beside is exploring a new kind of senior support service. We're not available yet, but we'd love to hear from seniors and families.">
+    <meta
+        name="description"
+        content="Beside is exploring a new kind of senior support service. We're not available yet, but we'd love to hear from seniors and families."
+    >
 
     <style>
+
         * {
             box-sizing: border-box;
         }
@@ -19,10 +23,15 @@
             background: #f7f3ed;
             color: #244b45;
         }
-	.logo-link {
-    text-decoration: none;
-    color: inherit;
-}
+
+        /* LOGO LINK */
+
+        .logo-link {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
         header {
             height: 66px;
             padding: 0 18px;
@@ -235,6 +244,61 @@
             margin: 0 auto;
         }
 
+        /* LOGO PREVIEW MODAL */
+
+        .logo-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.78);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            z-index: 1000;
+        }
+
+        .logo-modal.active {
+            display: flex;
+        }
+
+        .logo-modal-image {
+            max-width: min(90vw, 1200px);
+            max-height: 85vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background: #fffdf9;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            background: #fffdf9;
+            color: #173f3a;
+            font-size: 32px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            transition: all 0.2s ease;
+        }
+
+        .logo-modal-close:hover {
+            background: #244b45;
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
         /* MOBILE */
 
         @media (max-width: 700px) {
@@ -291,35 +355,65 @@
             .cards {
                 grid-template-columns: 1fr;
             }
+
+            .logo-modal {
+                padding: 20px;
+            }
+
+            .logo-modal-image {
+                max-width: 92vw;
+                max-height: 80vh;
+                padding: 14px;
+                border-radius: 14px;
+            }
+
+            .logo-modal-close {
+                top: 14px;
+                right: 14px;
+                width: 44px;
+                height: 44px;
+                font-size: 28px;
+            }
         }
+
     </style>
 </head>
 
 <body>
 
+    <!-- HEADER -->
+
     <header>
 
-<a
-    href="Beside%20Logo.png"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="logo-link"
->
-    <div class="logo-container">
-
-        <img
-            src="Beside%20Logo.png"
-            alt="Beside logo"
-            class="logo-image"
+        <a
+            href="#"
+            class="logo-link"
+            id="logoTrigger"
+            aria-label="View Beside logo"
         >
+            <div class="logo-container">
 
-        <div class="logo-text">beside</div>
+                <img
+                    src="Beside%20Logo.png"
+                    alt="Beside logo"
+                    class="logo-image"
+                >
 
-    </div>
-</a>
+                <div class="logo-text">
+                    beside
+                </div>
+
+            </div>
+        </a>
+
     </header>
 
+
+    <!-- MAIN CONTENT -->
+
     <main>
+
+        <!-- HERO -->
 
         <section class="hero">
 
@@ -337,8 +431,11 @@
             </p>
 
             <div class="availability">
+
                 <span class="availability-dot"></span>
+
                 Beside is not available yet. We're still exploring.
+
             </div>
 
             <p class="interest">
@@ -370,6 +467,9 @@
 
         </section>
 
+
+        <!-- EXPLORING SECTION -->
+
         <section class="exploring">
 
             <div class="exploring-inner">
@@ -397,6 +497,7 @@
 
                     </div>
 
+
                     <div class="card">
 
                         <h3>
@@ -409,6 +510,7 @@
                         </p>
 
                     </div>
+
 
                     <div class="card">
 
@@ -431,6 +533,9 @@
 
     </main>
 
+
+    <!-- FOOTER -->
+
     <footer>
 
         <div class="footer-inner">
@@ -438,6 +543,127 @@
         </div>
 
     </footer>
+
+
+    <!-- LOGO PREVIEW MODAL -->
+
+    <div
+        id="logoModal"
+        class="logo-modal"
+        aria-hidden="true"
+    >
+
+        <button
+            class="logo-modal-close"
+            id="logoModalClose"
+            aria-label="Close logo preview"
+        >
+            &times;
+        </button>
+
+        <img
+            src="Beside%20Logo.png"
+            alt="Beside logo — high resolution"
+            class="logo-modal-image"
+        >
+
+    </div>
+
+
+    <!-- LOGO MODAL JAVASCRIPT -->
+
+    <script>
+
+        const logoTrigger = document.getElementById('logoTrigger');
+        const logoModal = document.getElementById('logoModal');
+        const logoModalClose = document.getElementById('logoModalClose');
+
+
+        /* OPEN LOGO */
+
+        function openLogoModal(event) {
+
+            event.preventDefault();
+
+            logoModal.classList.add('active');
+
+            logoModal.setAttribute(
+                'aria-hidden',
+                'false'
+            );
+
+            document.body.style.overflow = 'hidden';
+
+        }
+
+
+        /* CLOSE LOGO */
+
+        function closeLogoModal() {
+
+            logoModal.classList.remove('active');
+
+            logoModal.setAttribute(
+                'aria-hidden',
+                'true'
+            );
+
+            document.body.style.overflow = '';
+
+        }
+
+
+        /* CLICK LOGO */
+
+        logoTrigger.addEventListener(
+            'click',
+            openLogoModal
+        );
+
+
+        /* CLICK X */
+
+        logoModalClose.addEventListener(
+            'click',
+            closeLogoModal
+        );
+
+
+        /* CLICK OUTSIDE LOGO */
+
+        logoModal.addEventListener(
+            'click',
+            function(event) {
+
+                if (event.target === logoModal) {
+
+                    closeLogoModal();
+
+                }
+
+            }
+        );
+
+
+        /* PRESS ESCAPE */
+
+        document.addEventListener(
+            'keydown',
+            function(event) {
+
+                if (
+                    event.key === 'Escape' &&
+                    logoModal.classList.contains('active')
+                ) {
+
+                    closeLogoModal();
+
+                }
+
+            }
+        );
+
+    </script>
 
 </body>
 </html>
