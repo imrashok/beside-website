@@ -7,10 +7,15 @@
     <title>Beside — Senior Support</title>
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -25,40 +30,50 @@
         ========================= */
 
         .site-header {
-            position: absolute;
-            top: 0;
-            left: 0;
+            height: 64px;
             width: 100%;
-
-            height: 58px;
 
             display: flex;
             align-items: center;
 
-            padding: 0 26px;
+            padding: 0 28px;
 
-            z-index: 10;
+            background: #fffdf9;
 
-            background: rgba(255, 252, 247, 0.72);
+            border-bottom: 1px solid #e6dfd6;
 
-            border-bottom: 1px solid rgba(220, 213, 203, 0.65);
-
-            backdrop-filter: blur(4px);
+            position: relative;
+            z-index: 20;
         }
+
+
+        /* Logo + Beside word */
 
         .logo-link {
             display: inline-flex;
             align-items: center;
 
+            gap: 10px;
+
             text-decoration: none;
-            color: inherit;
         }
 
-        .site-logo {
-            height: 34px;
+        .logo {
+            height: 38px;
             width: auto;
 
             display: block;
+        }
+
+        .brand-name {
+            color: #174f47;
+
+            font-size: 24px;
+            font-weight: 700;
+
+            letter-spacing: -0.8px;
+
+            line-height: 1;
         }
 
 
@@ -69,7 +84,7 @@
         .hero {
             position: relative;
 
-            min-height: 850px;
+            min-height: 790px;
 
             background-image: url("Banner.png");
             background-size: cover;
@@ -77,6 +92,28 @@
             background-repeat: no-repeat;
 
             overflow: hidden;
+        }
+
+
+        /* Soft cream fade on the left */
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background: linear-gradient(
+                90deg,
+                rgba(247, 243, 237, 0.98) 0%,
+                rgba(247, 243, 237, 0.96) 25%,
+                rgba(247, 243, 237, 0.88) 36%,
+                rgba(247, 243, 237, 0.58) 47%,
+                rgba(247, 243, 237, 0.12) 61%,
+                rgba(247, 243, 237, 0) 72%
+            );
+
+            pointer-events: none;
         }
 
 
@@ -88,19 +125,17 @@
             position: relative;
             z-index: 2;
 
-            width: 46%;
-            max-width: 720px;
+            width: 47%;
+            max-width: 700px;
 
             margin-left: 7%;
 
-            padding-top: 165px;
-            padding-bottom: 100px;
+            padding-top: 80px;
+            padding-bottom: 90px;
         }
 
 
-        /* =========================
-           EYEBROW
-        ========================= */
+        /* Small orange heading */
 
         .eyebrow {
             display: inline-block;
@@ -113,22 +148,19 @@
             font-weight: 700;
 
             letter-spacing: 2px;
+
             text-transform: uppercase;
         }
 
 
-        /* =========================
-           MAIN HEADING
-        ========================= */
+        /* Main heading */
 
         .hero h1 {
-            max-width: 650px;
-
             margin-bottom: 28px;
 
             color: #174f47;
 
-            font-size: clamp(48px, 5vw, 76px);
+            font-size: clamp(48px, 5vw, 74px);
 
             line-height: 1.02;
 
@@ -138,25 +170,23 @@
         }
 
 
-        /* =========================
-           DESCRIPTION
-        ========================= */
+        /* Supporting paragraph */
 
         .hero-description {
-            max-width: 610px;
+            max-width: 620px;
 
-            margin-bottom: 32px;
+            margin-bottom: 30px;
 
             color: #426078;
 
-            font-size: 20px;
+            font-size: 19px;
 
             line-height: 1.55;
         }
 
 
         /* =========================
-           STATUS
+           STATUS MESSAGE
         ========================= */
 
         .status {
@@ -168,7 +198,7 @@
 
             padding: 13px 18px;
 
-            margin-bottom: 25px;
+            margin-bottom: 24px;
 
             background: rgba(255, 252, 247, 0.94);
 
@@ -182,8 +212,7 @@
 
             font-weight: 600;
 
-            box-shadow:
-                0 3px 12px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
         }
 
         .status-dot {
@@ -203,9 +232,9 @@
         ========================= */
 
         .cta-text {
-            max-width: 610px;
+            max-width: 620px;
 
-            margin-bottom: 24px;
+            margin-bottom: 23px;
 
             color: #426078;
 
@@ -231,6 +260,7 @@
             display: inline-flex;
 
             align-items: center;
+
             justify-content: center;
 
             padding: 15px 24px;
@@ -249,6 +279,8 @@
 
             text-decoration: none;
 
+            cursor: pointer;
+
             transition:
                 background 0.2s ease,
                 transform 0.2s ease,
@@ -260,8 +292,146 @@
 
             transform: translateY(-2px);
 
-            box-shadow:
-                0 6px 18px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+
+        /* =========================
+           WHAT WE'RE EXPLORING
+        ========================= */
+
+        .exploring {
+            background: #fffdf9;
+
+            padding: 100px 7% 110px;
+
+            border-top: 1px solid #e6dfd6;
+        }
+
+        .exploring-inner {
+            max-width: 1200px;
+
+            margin: 0 auto;
+        }
+
+        .section-label {
+            margin-bottom: 18px;
+
+            color: #c85b2d;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+        .exploring h2 {
+            max-width: 700px;
+
+            margin-bottom: 20px;
+
+            color: #174f47;
+
+            font-size: clamp(38px, 4vw, 58px);
+
+            line-height: 1.08;
+
+            letter-spacing: -2px;
+        }
+
+        .section-intro {
+            max-width: 700px;
+
+            margin-bottom: 55px;
+
+            color: #426078;
+
+            font-size: 18px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           EXPLORING CARDS
+        ========================= */
+
+        .exploring-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .exploring-card {
+            padding: 32px;
+
+            background: #f7f3ed;
+
+            border: 1px solid #e5ddd3;
+
+            border-radius: 18px;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .exploring-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .card-number {
+            display: block;
+
+            margin-bottom: 22px;
+
+            color: #c85b2d;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+        .exploring-card h3 {
+            margin-bottom: 12px;
+
+            color: #174f47;
+
+            font-size: 23px;
+        }
+
+        .exploring-card p {
+            color: #426078;
+
+            font-size: 16px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px 7%;
+
+            background: #174f47;
+
+            color: #fffdf9;
+
+            text-align: center;
+
+            font-size: 14px;
         }
 
 
@@ -269,50 +439,39 @@
            RESPONSIVE
         ========================= */
 
-        @media (max-width: 1100px) {
-
-            .hero {
-                min-height: 800px;
-
-                background-position: 58% center;
-            }
-
-            .hero-content {
-                width: 50%;
-
-                margin-left: 6%;
-
-                padding-top: 145px;
-            }
-
-            .hero h1 {
-                font-size: clamp(46px, 5vw, 66px);
-            }
-        }
-
-
         @media (max-width: 900px) {
 
             .hero {
-                min-height: 900px;
+                min-height: 850px;
 
                 background-position: 65% center;
             }
 
+            .hero::before {
+                background: linear-gradient(
+                    180deg,
+                    rgba(247, 243, 237, 0.98) 0%,
+                    rgba(247, 243, 237, 0.94) 38%,
+                    rgba(247, 243, 237, 0.55) 60%,
+                    rgba(247, 243, 237, 0.05) 80%
+                );
+            }
+
             .hero-content {
-                width: 65%;
+                width: auto;
 
                 margin-left: 6%;
+                margin-right: 6%;
 
-                padding-top: 130px;
+                padding-top: 80px;
             }
 
             .hero h1 {
-                font-size: clamp(44px, 7vw, 64px);
+                font-size: clamp(44px, 9vw, 64px);
             }
 
-            .hero-description {
-                font-size: 18px;
+            .exploring-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -320,28 +479,28 @@
         @media (max-width: 600px) {
 
             .site-header {
-                height: 54px;
-
-                padding: 0 18px;
+                padding: 0 20px;
             }
 
-            .site-logo {
-                height: 30px;
+            .logo {
+                height: 34px;
+            }
+
+            .brand-name {
+                font-size: 22px;
             }
 
             .hero {
-                min-height: 950px;
+                min-height: 900px;
 
-                background-position: 67% bottom;
+                background-position: 62% bottom;
             }
 
             .hero-content {
-                width: auto;
-
                 margin-left: 24px;
                 margin-right: 24px;
 
-                padding-top: 100px;
+                padding-top: 60px;
             }
 
             .eyebrow {
@@ -375,7 +534,12 @@
 
                 align-items: flex-start;
             }
+
+            .exploring {
+                padding: 70px 24px 80px;
+            }
         }
+
     </style>
 </head>
 
@@ -389,14 +553,17 @@
 
     <header class="site-header">
 
-        <a href="index.html" class="logo-link">
+        <a href="#" class="logo-link">
 
-            <!-- Change this filename if your logo file has a different name -->
             <img
-                src="logo.png"
+                src="Logo.png"
                 alt="Beside"
-                class="site-logo"
+                class="logo"
             >
+
+            <span class="brand-name">
+                beside
+            </span>
 
         </a>
 
@@ -412,6 +579,7 @@
 
         <div class="hero-content">
 
+
             <div class="eyebrow">
                 A new kind of senior support
             </div>
@@ -425,7 +593,7 @@
 
             <p class="hero-description">
                 We're exploring a service that gives seniors a trusted
-                helping hand with everyday life — and gives their families
+                helping hand with everyday life and gives their families
                 peace of mind.
             </p>
 
@@ -449,11 +617,22 @@
 
             <div class="buttons">
 
-                <a href="senior.html" class="button">
+                <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfpfdabBFit3emANk5eO_i3ZZ7dBMCb1F3gJU7NFUVtGKlzig/viewform?usp=header"
+                    class="button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     I'm a senior
                 </a>
 
-                <a href="family.html" class="button">
+
+                <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSc5qvDlyiaFkrZuRdgMegZgxEQfVnpJeCtRyy1lezLK7sZ8Cw/viewform?usp=header"
+                    class="button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     I'm a family member
                 </a>
 
@@ -464,16 +643,108 @@
     </section>
 
 
-    <!--
-    YOUR OTHER WEBSITE SECTIONS GO HERE.
 
-    For example:
+    <!-- =========================
+         WHAT WE'RE EXPLORING
+    ========================= -->
 
-    <section class="what-we-explore">
-        ...
+    <section class="exploring">
+
+        <div class="exploring-inner">
+
+            <div class="section-label">
+                What we're exploring
+            </div>
+
+
+            <h2>
+                Everyday support, without making life feel smaller.
+            </h2>
+
+
+            <p class="section-intro">
+                Beside is an idea we're exploring to help seniors stay
+                independent, connected and comfortable in their everyday
+                lives, while giving their families greater peace of mind.
+            </p>
+
+
+            <div class="exploring-grid">
+
+
+                <div class="exploring-card">
+
+                    <span class="card-number">
+                        01
+                    </span>
+
+                    <h3>
+                        Everyday errands
+                    </h3>
+
+                    <p>
+                        Help with the little things that become difficult
+                        when family members can't always be there.
+                    </p>
+
+                </div>
+
+
+                <div class="exploring-card">
+
+                    <span class="card-number">
+                        02
+                    </span>
+
+                    <h3>
+                        Companionship
+                    </h3>
+
+                    <p>
+                        Someone to talk to, have tea with, go for a walk,
+                        or simply spend some time together.
+                    </p>
+
+                </div>
+
+
+                <div class="exploring-card">
+
+                    <span class="card-number">
+                        03
+                    </span>
+
+                    <h3>
+                        Getting out & about
+                    </h3>
+
+                    <p>
+                        Support with doctor visits, appointments and
+                        getting out of the house when needed.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
     </section>
 
-    -->
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Beside. We're exploring what's possible.
+        </p>
+
+    </footer>
 
 
 </body>
