@@ -46,13 +46,9 @@
             z-index: 20;
         }
 
-
-        /* Logo + Beside word */
-
         .logo-link {
             display: inline-flex;
             align-items: center;
-
             gap: 10px;
 
             text-decoration: none;
@@ -61,7 +57,6 @@
         .logo {
             height: 38px;
             width: auto;
-
             display: block;
         }
 
@@ -72,7 +67,6 @@
             font-weight: 700;
 
             letter-spacing: -0.8px;
-
             line-height: 1;
         }
 
@@ -260,7 +254,6 @@
             display: inline-flex;
 
             align-items: center;
-
             justify-content: center;
 
             padding: 15px 24px;
@@ -274,7 +267,6 @@
             color: #173f3a;
 
             font-size: 15px;
-
             font-weight: 700;
 
             text-decoration: none;
@@ -435,9 +427,9 @@
         }
 
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+        /* =========================================================
+           TABLET
+        ========================================================= */
 
         @media (max-width: 900px) {
 
@@ -476,9 +468,15 @@
         }
 
 
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
         @media (max-width: 600px) {
 
             .site-header {
+                height: 64px;
+
                 padding: 0 20px;
             }
 
@@ -490,18 +488,52 @@
                 font-size: 22px;
             }
 
-            .hero {
-                min-height: 900px;
 
-                background-position: 62% bottom;
+            /*
+            Mobile hero:
+            The photograph is moved lower so it doesn't sit
+            directly underneath the text.
+            */
+
+            .hero {
+                min-height: auto;
+
+                background-position: center bottom;
+
+                background-size: 100% auto;
+
+                background-color: #f7f3ed;
+
+                padding-bottom: 420px;
             }
 
+
+            /*
+            The cream background remains behind the text.
+            */
+
+            .hero::before {
+                background: linear-gradient(
+                    180deg,
+                    rgba(247, 243, 237, 1) 0%,
+                    rgba(247, 243, 237, 1) 58%,
+                    rgba(247, 243, 237, 0.96) 68%,
+                    rgba(247, 243, 237, 0.35) 88%,
+                    rgba(247, 243, 237, 0) 100%
+                );
+            }
+
+
             .hero-content {
+                width: auto;
+
                 margin-left: 24px;
                 margin-right: 24px;
 
                 padding-top: 60px;
+                padding-bottom: 40px;
             }
+
 
             .eyebrow {
                 font-size: 12px;
@@ -511,33 +543,118 @@
                 margin-bottom: 20px;
             }
 
+
+            /*
+            Slightly smaller mobile heading so
+            "be" doesn't get stranded.
+            */
+
             .hero h1 {
+                max-width: 100%;
+
                 margin-bottom: 22px;
 
-                font-size: 46px;
+                font-size: 42px;
 
-                line-height: 1.02;
+                line-height: 1.04;
 
                 letter-spacing: -2px;
             }
 
+
             .hero-description {
+                max-width: 100%;
+
                 font-size: 17px;
+
+                line-height: 1.55;
+
+                margin-bottom: 25px;
             }
 
-            .cta-text {
-                font-size: 16px;
+
+            /*
+            Smaller status box on mobile.
+            */
+
+            .status {
+                width: 100%;
+
+                padding: 12px 15px;
+
+                gap: 10px;
+
+                margin-bottom: 22px;
+
+                font-size: 13px;
+
+                line-height: 1.4;
             }
+
+            .status-dot {
+                width: 8px;
+                height: 8px;
+            }
+
+
+            .cta-text {
+                max-width: 100%;
+
+                margin-bottom: 22px;
+
+                font-size: 16px;
+
+                line-height: 1.55;
+            }
+
+
+            /*
+            Stack buttons vertically.
+            */
 
             .buttons {
                 flex-direction: column;
 
-                align-items: flex-start;
+                align-items: stretch;
+
+                gap: 12px;
             }
+
+            .button {
+                width: 100%;
+
+                padding: 15px 20px;
+
+                font-size: 16px;
+            }
+
+
+            /* Exploring section */
 
             .exploring {
                 padding: 70px 24px 80px;
             }
+
+            .exploring h2 {
+                font-size: 38px;
+
+                letter-spacing: -1.5px;
+            }
+
+            .section-intro {
+                font-size: 17px;
+            }
+
+            .exploring-grid {
+                grid-template-columns: 1fr;
+
+                gap: 16px;
+            }
+
+            .exploring-card {
+                padding: 26px;
+            }
+
         }
 
     </style>
@@ -572,13 +689,12 @@
 
 
     <!-- =========================
-         HERO SECTION
+         HERO
     ========================= -->
 
     <section class="hero">
 
         <div class="hero-content">
-
 
             <div class="eyebrow">
                 A new kind of senior support
@@ -593,7 +709,7 @@
 
             <p class="hero-description">
                 We're exploring a service that gives seniors a trusted
-                helping hand with everyday life and gives their families
+                helping hand with everyday life — and gives their families
                 peace of mind.
             </p>
 
@@ -665,7 +781,7 @@
             <p class="section-intro">
                 Beside is an idea we're exploring to help seniors stay
                 independent, connected and comfortable in their everyday
-                lives, while giving their families greater peace of mind.
+                lives — while giving their families greater peace of mind.
             </p>
 
 
@@ -749,3 +865,42 @@
 
 </body>
 </html>
+
+What this changes on your phone
+
+The important part is the mobile CSS:
+
+.hero {
+    background-position: center bottom;
+    background-size: 100% auto;
+    background-color: #f7f3ed;
+    padding-bottom: 420px;
+}
+
+So instead of the woman's image sitting behind your text, the mobile page will essentially become:
+
+beside
+
+A new kind of senior support
+
+When you can't be
+there, we're there.
+
+Supporting text
+
+Status
+
+CTA
+
+I'm a senior
+I'm a family member
+
+↓
+
+Photo
+
+↓
+
+What we're exploring
+
+That should be substantially cleaner on the phone while preserving the desktop design you already like.
