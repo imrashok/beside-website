@@ -19,13 +19,57 @@
             color: #174f47;
         }
 
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .site-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            height: 58px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 26px;
+
+            z-index: 10;
+
+            background: rgba(255, 252, 247, 0.72);
+
+            border-bottom: 1px solid rgba(220, 213, 203, 0.65);
+
+            backdrop-filter: blur(4px);
+        }
+
+        .logo-link {
+            display: inline-flex;
+            align-items: center;
+
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .site-logo {
+            height: 34px;
+            width: auto;
+
+            display: block;
+        }
+
+
         /* =========================
            HERO / BANNER
         ========================= */
 
         .hero {
             position: relative;
-            min-height: 780px;
+
+            min-height: 850px;
 
             background-image: url("Banner.png");
             background-size: cover;
@@ -35,45 +79,28 @@
             overflow: hidden;
         }
 
-        /*
-        This creates a subtle cream fade on the left,
-        making sure the website text remains easy to read.
-        */
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-
-            background: linear-gradient(
-                90deg,
-                rgba(247, 243, 237, 0.98) 0%,
-                rgba(247, 243, 237, 0.94) 28%,
-                rgba(247, 243, 237, 0.72) 42%,
-                rgba(247, 243, 237, 0.10) 58%,
-                rgba(247, 243, 237, 0) 70%
-            );
-
-            pointer-events: none;
-        }
-
 
         /* =========================
-           CONTENT
+           HERO CONTENT
         ========================= */
 
         .hero-content {
             position: relative;
             z-index: 2;
 
-            width: min(700px, 50%);
+            width: 46%;
+            max-width: 720px;
 
             margin-left: 7%;
-            padding-top: 115px;
+
+            padding-top: 165px;
             padding-bottom: 100px;
         }
 
 
-        /* Small orange heading */
+        /* =========================
+           EYEBROW
+        ========================= */
 
         .eyebrow {
             display: inline-block;
@@ -84,65 +111,79 @@
 
             font-size: 15px;
             font-weight: 700;
+
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
 
-        /* Main heading */
+        /* =========================
+           MAIN HEADING
+        ========================= */
 
         .hero h1 {
-            max-width: 680px;
+            max-width: 650px;
 
             margin-bottom: 28px;
 
             color: #174f47;
 
             font-size: clamp(48px, 5vw, 76px);
+
             line-height: 1.02;
+
             font-weight: 800;
+
             letter-spacing: -3px;
         }
 
 
-        /* Supporting text */
+        /* =========================
+           DESCRIPTION
+        ========================= */
 
         .hero-description {
-            max-width: 650px;
+            max-width: 610px;
 
             margin-bottom: 32px;
 
             color: #426078;
 
             font-size: 20px;
+
             line-height: 1.55;
         }
 
 
         /* =========================
-           STATUS MESSAGE
+           STATUS
         ========================= */
 
         .status {
             display: inline-flex;
+
             align-items: center;
+
             gap: 12px;
 
             padding: 13px 18px;
 
             margin-bottom: 25px;
 
-            background: rgba(255, 252, 247, 0.92);
+            background: rgba(255, 252, 247, 0.94);
 
             border: 1px solid #ded6cc;
+
             border-radius: 12px;
 
             color: #173f3a;
 
             font-size: 14px;
+
             font-weight: 600;
 
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+            box-shadow:
+                0 3px 12px rgba(0, 0, 0, 0.04);
         }
 
         .status-dot {
@@ -162,13 +203,14 @@
         ========================= */
 
         .cta-text {
-            max-width: 650px;
+            max-width: 610px;
 
             margin-bottom: 24px;
 
             color: #426078;
 
             font-size: 17px;
+
             line-height: 1.6;
         }
 
@@ -179,25 +221,30 @@
 
         .buttons {
             display: flex;
+
             gap: 12px;
+
             flex-wrap: wrap;
         }
 
         .button {
             display: inline-flex;
+
             align-items: center;
             justify-content: center;
 
             padding: 15px 24px;
 
-            background: rgba(255, 252, 247, 0.92);
+            background: rgba(255, 252, 247, 0.94);
 
             border: 1px solid #d9cec2;
+
             border-radius: 30px;
 
             color: #173f3a;
 
             font-size: 15px;
+
             font-weight: 700;
 
             text-decoration: none;
@@ -213,7 +260,8 @@
 
             transform: translateY(-2px);
 
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            box-shadow:
+                0 6px 18px rgba(0, 0, 0, 0.08);
         }
 
 
@@ -221,57 +269,86 @@
            RESPONSIVE
         ========================= */
 
+        @media (max-width: 1100px) {
+
+            .hero {
+                min-height: 800px;
+
+                background-position: 58% center;
+            }
+
+            .hero-content {
+                width: 50%;
+
+                margin-left: 6%;
+
+                padding-top: 145px;
+            }
+
+            .hero h1 {
+                font-size: clamp(46px, 5vw, 66px);
+            }
+        }
+
+
         @media (max-width: 900px) {
 
             .hero {
-                min-height: 850px;
+                min-height: 900px;
 
                 background-position: 65% center;
             }
 
-            .hero::before {
-                background: linear-gradient(
-                    180deg,
-                    rgba(247, 243, 237, 0.98) 0%,
-                    rgba(247, 243, 237, 0.94) 38%,
-                    rgba(247, 243, 237, 0.55) 60%,
-                    rgba(247, 243, 237, 0.05) 80%
-                );
-            }
-
             .hero-content {
-                width: auto;
+                width: 65%;
 
                 margin-left: 6%;
-                margin-right: 6%;
 
-                padding-top: 80px;
+                padding-top: 130px;
             }
 
             .hero h1 {
-                font-size: clamp(44px, 9vw, 64px);
+                font-size: clamp(44px, 7vw, 64px);
+            }
+
+            .hero-description {
+                font-size: 18px;
             }
         }
 
 
         @media (max-width: 600px) {
 
-            .hero {
-                min-height: 900px;
+            .site-header {
+                height: 54px;
 
-                background-position: 62% bottom;
+                padding: 0 18px;
+            }
+
+            .site-logo {
+                height: 30px;
+            }
+
+            .hero {
+                min-height: 950px;
+
+                background-position: 67% bottom;
             }
 
             .hero-content {
+                width: auto;
+
                 margin-left: 24px;
                 margin-right: 24px;
 
-                padding-top: 60px;
+                padding-top: 100px;
             }
 
             .eyebrow {
                 font-size: 12px;
+
                 letter-spacing: 1.5px;
+
                 margin-bottom: 20px;
             }
 
@@ -279,7 +356,9 @@
                 margin-bottom: 22px;
 
                 font-size: 46px;
+
                 line-height: 1.02;
+
                 letter-spacing: -2px;
             }
 
@@ -293,6 +372,7 @@
 
             .buttons {
                 flex-direction: column;
+
                 align-items: flex-start;
             }
         }
@@ -301,6 +381,28 @@
 
 
 <body>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header class="site-header">
+
+        <a href="index.html" class="logo-link">
+
+            <!-- Change this filename if your logo file has a different name -->
+            <img
+                src="logo.png"
+                alt="Beside"
+                class="site-logo"
+            >
+
+        </a>
+
+    </header>
+
+
 
     <!-- =========================
          HERO SECTION
@@ -329,11 +431,13 @@
 
 
             <div class="status">
+
                 <span class="status-dot"></span>
 
                 <span>
                     Beside is not available yet. We're still exploring.
                 </span>
+
             </div>
 
 
@@ -344,8 +448,6 @@
 
 
             <div class="buttons">
-
-                <!-- Change these URLs to your actual pages/forms -->
 
                 <a href="senior.html" class="button">
                     I'm a senior
@@ -360,6 +462,19 @@
         </div>
 
     </section>
+
+
+    <!--
+    YOUR OTHER WEBSITE SECTIONS GO HERE.
+
+    For example:
+
+    <section class="what-we-explore">
+        ...
+    </section>
+
+    -->
+
 
 </body>
 </html>
